@@ -1,0 +1,1 @@
+ALTER TABLE student ADD CONSTRAINT student_fk FOREIGN KEY(id) REFERENCES "user";

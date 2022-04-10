@@ -1,0 +1,1 @@
+ALTER TABLE student DROP CONSTRAINT student_fk;
