@@ -7,7 +7,7 @@ import {
   studentRouter,
 } from "./routes";
 
-const app = express();
+export const app = express();
 
 app.use(urlencoded({ extended: true }));
 app.use(json());

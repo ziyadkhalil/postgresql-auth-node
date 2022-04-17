@@ -27,7 +27,7 @@ async function add(course: Omit<BaseCourse, "id">): Promise<BaseCourse> {
 async function update(
   course: Partial<BaseCourse> & { id: number }
 ): Promise<BaseCourse> {
-  if (!course.instructor_id || !course.name)
+  if (!course.instructor_id && !course.name)
     throw new Error("Nothing to update");
   let connection: PoolClient | undefined = undefined;
   try {

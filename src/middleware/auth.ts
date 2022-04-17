@@ -18,7 +18,6 @@ export function authMiddleware(
     res.locals.user = { id, username };
     next();
   } catch (e) {
-    console.error(e);
     res.status(401).send("Unauthorized");
   }
 }

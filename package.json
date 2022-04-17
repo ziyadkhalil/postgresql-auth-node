@@ -6,7 +6,7 @@
   "scripts": {
     "build": "npx tsc",
     "watch": "nodemon --watch './**/*.ts' --exec 'ts-node' src/index.ts",
-    "test": "yarn build && jasmine",
+    "test": "db-migrate --env test up && ENV=test jasmine && db-migrate --env test reset",
     "start": "node dist/index.js",
     "lint": "npx eslint . --ext .ts",
     "format": "npx prettier --write src"
@@ -17,7 +17,7 @@
     "@types/jasmine": "^3.10.3",
     "@types/jsonwebtoken": "^8.5.8",
     "@types/pg": "^8.6.5",
-    "@types/supertest": "^2.0.11",
+    "@types/supertest": "^2.0.12",
     "@typescript-eslint/eslint-plugin": "^5.14.0",
     "@typescript-eslint/parser": "^5.14.0",
     "eslint": "^8.11.0",

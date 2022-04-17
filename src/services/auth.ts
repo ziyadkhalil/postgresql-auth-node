@@ -68,6 +68,7 @@ async function createAccount(
   );
 
   return {
+    id: createdUser.id,
     username: createdUser.username,
     token,
   };

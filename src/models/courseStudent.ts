@@ -12,7 +12,7 @@ async function add(
 ): Promise<CourseStudent> {
   const connection = await client.connect();
   const result = await connection.query<CourseStudent>(
-    "INSERT INTO course_student (student_id, course_id) VALUES ($1, $2) RETURNING *;",
+    'INSERT INTO course_student (student_id, course_id) VALUES ($1, $2) RETURNING student_id as "studentId", course_id as "courseId" ;',
     [courseStudent.studentId, courseStudent.courseId]
   );
   connection.release();
@@ -41,7 +41,7 @@ async function remove(
 ): Promise<void> {
   const connection = await client.connect();
   await connection.query(
-    "DELETE FROM course WHERE course_id = $1 AND student_id = $2",
+    "DELETE FROM course_student WHERE course_id = $1 AND student_id = $2",
     [courseStudent.courseId, courseStudent.studentId]
   );
   return;

@@ -9,7 +9,7 @@ import {
 const courseStudentStore = makeCourseStudentStore();
 const courseStore = makeCourseStore();
 
-type Course = Omit<BaseCourse, "instructor_id"> & {
+export type Course = Omit<BaseCourse, "instructor_id"> & {
   instructor: {
     id: number;
     name: string;
@@ -47,6 +47,7 @@ async function get(
     'SELECT course.id, course.name, instructor.name as "instructorName", instructor.id as "instructorId" FROM course LEFT OUTER JOIN instructor ON instructor.id = course.instructor_id WHERE course.id = $1',
     [courseId]
   );
+  connection.release();
   if (result.rowCount === 0) throw `No course found with id ${courseId}`;
   return {
     id: result.rows[0].id,

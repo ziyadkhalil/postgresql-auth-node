@@ -36,6 +36,5 @@ courseRouter.post("/create", async (req, res) => {
     res.json(course);
   } catch (e) {
     res.status(404).send("Failed to load course");
-    console.error(e);
   }
 });

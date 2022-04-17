@@ -22,7 +22,6 @@ authRouter.post("/register", async (req, res) => {
 
     res.json(userInfo);
   } catch (e) {
-    console.error(e);
     res.status(404).send("Failed to create an account");
   }
 });
@@ -38,7 +37,6 @@ authRouter.post("/login", async (req, res) => {
 
     res.json(userInfo);
   } catch (e) {
-    console.error(e);
     res.status(404).send("Failed to login");
   }
 });
